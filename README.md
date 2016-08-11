@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/sreekanthgs/mnemonic.svg?branch=master)](https://travis-ci.org/sreekanthgs/mnemonic)
+[![Gem Version](https://badge.fury.io/rb/bip_mnemonic.svg)](https://badge.fury.io/rb/bip_mnemonic)
 
 # README
 
