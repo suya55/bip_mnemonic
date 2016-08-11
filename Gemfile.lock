@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bip_mnemonic (0.0.1)
+    bip_mnemonic (0.0.2)
 
 GEM
   remote: https://rubygems.org/

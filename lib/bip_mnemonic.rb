@@ -1,7 +1,7 @@
 require 'pbkdf2'
 
 class BipMnemonic
-  VERSION = "0.0.1"
+  VERSION = "0.0.2"
   def self.to_mnemonic(options)
     options ||= {}
     bits = options[:bits] || 128
@@ -13,7 +13,7 @@ class BipMnemonic
     end
     entropy_binary = entropy_bytes.unpack("B*").first
     seed_binary = entropy_binary + checksum(entropy_binary)
-    words_array = File.readlines("words/english.txt").map(&:strip)
+    words_array = File.readlines(File.join(File.dirname(File.expand_path(__FILE__)), '../words/english.txt')).map(&:strip)
     seed_binary.chars.each_slice(11).map(&:join).map{|item| item.to_i(2)}.map {|i| words_array[i]}.join(" ")
   end
 
@@ -21,7 +21,7 @@ class BipMnemonic
     options ||= {}
     raise ArgumentError, "Mnemonic not set" if options[:mnemonic].nil?
     raise ArgumentError, "Mnemonic is empty" if options[:mnemonic] == ""
-    words_array = File.readlines("words/english.txt").map(&:strip)
+    words_array = File.readlines(File.join(File.dirname(File.expand_path(__FILE__)), '../words/english.txt')).map(&:strip)
     mnemonic_array = options[:mnemonic].split(" ").map do |word|
       word_index = words_array.index(word)
       raise IndexError, "Word not found in words list" if word_index.nil?

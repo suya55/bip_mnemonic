@@ -11,5 +11,5 @@ Gem::Specification.new do |s|
   s.version = BipMnemonic::VERSION
   s.add_development_dependency 'rspec'
   s.add_development_dependency 'rdoc'
-  s.files = Dir['lib/**/*.rb']
+  s.files = Dir['lib/**/*.rb'] + Dir['words/*.txt']
 end
