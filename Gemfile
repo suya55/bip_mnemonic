@@ -10,4 +10,7 @@ group :development do
   gem 'terminal-notifier-guard'
 end
 
-gem 'simplecov', :require => false, :group => :test
+group :test do
+  gem 'simplecov', require: false
+  gem 'codecov', require: false
+end
