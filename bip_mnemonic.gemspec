@@ -8,8 +8,9 @@ Gem::Specification.new do |s|
   s.email = 'mail@sreekanth.in'
   s.homepage = 'http://github.com/sreekanthgs/mnemonic'
   s.authors = ['Sreekanth GS']
+  s.license = 'MIT'
   s.version = BipMnemonic::VERSION
-  s.add_development_dependency 'rspec'
   s.add_development_dependency 'rdoc'
+  s.add_development_dependency 'rspec'
   s.files = Dir['lib/**/*.rb'] + Dir['words/*.txt']
 end
