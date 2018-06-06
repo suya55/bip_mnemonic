@@ -3,7 +3,7 @@ require 'bip_mnemonic'
 
 RSpec::Core::RakeTask.new(:spec)
 
-task :default => :spec
+task default: :spec
 
 require 'rdoc/task'
 RDoc::Task.new do |rdoc|

@@ -10,7 +10,7 @@ BipMnemonic is a ruby gem to generate BIP-39 compliant Mnemonic Words from speci
 ## Usage
 Specified Entropy in Hex
 ```
-BipMnemonic.to_mnemonic(entropy: "c10ec20dc3cd9f652c7fac2f1230f7a3c828389a14392f05")
+BipMnemonic.to_mnemonic(entropy: 'c10ec20dc3cd9f652c7fac2f1230f7a3c828389a14392f05')
 ```
 Entropy of `n` bits
 ```
@@ -22,10 +22,9 @@ BipMnemonic.to_entropy(mnemonic: 'scissors invite lock maple supreme raw rapid v
 ```
 Seed from Mnemonic Words
 ```
-words = BipMnemonic.to_mnemonic(entropy: "c10ec20dc3cd9f652c7fac2f1230f7a3c828389a14392f05")
+words = BipMnemonic.to_mnemonic(entropy: 'c10ec20dc3cd9f652c7fac2f1230f7a3c828389a14392f05')
 BipMnemonic.to_seed(mnemonic: words)
 ```
 
 ## Credits
 * OpenSSL
-* Sam Quigley for Ruby implementation of PBKDF2 (https://github.com/emerose/pbkdf2-ruby)
