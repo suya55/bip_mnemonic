@@ -1,5 +1,4 @@
 require 'pbkdf2'
-
 class BipMnemonic
   VERSION = '0.0.2'.freeze
 
@@ -7,7 +6,7 @@ class BipMnemonic
     options ||= {}
     bits = options[:bits] || 128
     if options[:entropy].nil?
-      entropy_bytes = OpenSSL::Random.pseudo_bytes(bits / 8)
+      entropy_bytes = OpenSSL::Random.random_bytes(bits / 8)
     else
       raise ArgumentError, 'Entropy is empty' if options[:entropy].empty?
       entropy_bytes = [options[:entropy]].pack('H*')
