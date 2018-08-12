@@ -1,4 +1,4 @@
-require 'pbkdf2'
+require 'openssl'
 class BipMnemonic
   VERSION = '0.0.2'.freeze
 
