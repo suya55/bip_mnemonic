@@ -1,6 +1,6 @@
-require 'pbkdf2'
+require 'openssl'
 class BipMnemonic
-  VERSION = '0.0.2'.freeze
+  VERSION = '0.0.3'.freeze
 
   def self.to_mnemonic(options)
     options ||= {}
