@@ -11,11 +11,13 @@ class BipMnemonic
       raise ArgumentError, 'Entropy is empty' if options[:entropy].empty?
       entropy_bytes = [options[:entropy]].pack('H*')
     end
+    language = options[:language] || 'english'
+    word_list_path = "../words/#{language}.txt"
     entropy_binary = entropy_bytes.unpack('B*').first
     seed_binary = entropy_binary + checksum(entropy_binary)
     words_array = File.readlines(
       File.join(
-        File.dirname(File.expand_path(__FILE__)), '../words/english.txt'
+        File.dirname(File.expand_path(__FILE__)), word_list_path
       )
     ).map(&:strip)
     seed_binary.chars
@@ -30,9 +32,11 @@ class BipMnemonic
     options ||= {}
     raise ArgumentError, 'Mnemonic not set' if options[:mnemonic].nil?
     raise ArgumentError, 'Mnemonic is empty' if options[:mnemonic].empty?
+    language = options[:language] || 'english'
+    word_list_path = "../words/#{language}.txt"
     words_array = File.readlines(
       File.join(
-        File.dirname(File.expand_path(__FILE__)), '../words/english.txt'
+        File.dirname(File.expand_path(__FILE__)), word_list_path
       )
     ).map(&:strip)
     mnemonic_array = options[:mnemonic].split(' ').map do |word|

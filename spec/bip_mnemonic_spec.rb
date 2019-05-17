@@ -2,6 +2,10 @@ require File.dirname(__FILE__) + '/spec_helper.rb'
 
 describe 'BipMnemonic class' do
   context 'generates correct' do
+    it 'test for entropy 00000000000000000000000000000000 to Korean' do
+      # expect(BipMnemonic.to_entropy(mnemonic: 'wolf juice proud gown wool unfair wall cliff insect more detail hub')).to eq 'FCCF1AB3329FD5DA3DA9577511F8F137'.downcase
+      expect(BipMnemonic.to_mnemonic(entropy: '00000000000000000000000000000000', language: 'korean')).to eql  "가격 가격 가격 가격 가격 가격 가격 가격 가격 가격 가격 가능"
+    end
     it 'mnemonic for entropy 00000000000000000000000000000000' do
       expect(BipMnemonic.to_mnemonic(entropy: '00000000000000000000000000000000')).to eql 'abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon about'
     end
